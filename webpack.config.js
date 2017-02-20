@@ -12,20 +12,5 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: filename.join('.'),
     },
-    devtool: 'source-map',
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /(node_modules)/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015', 'react']
-                }
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    },
-};
+    devtool: 'source-map'
+}
