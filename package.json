@@ -1,0 +1,29 @@
+{
+    "name": "test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "mkdir": "mkdir -p build",
+        "build": "npm run clean && npm run mkdir && npm run build:html && npm run build:js",
+        "serve": "http-server build/",
+        "watch": "npm run watch:html & npm run watch:js",
+        "clean": "rm -rf build",
+        "build:html": "npm run clean:html && cp index.html build/",
+        "watch:html": "npm run build:html && chokidar index.html -c 'npm run build:html'",
+        "clean:html": "rm -f build/index.html",
+        "build:js": "npm run clean:js && webpack",
+        "watch:js": "npm run build:js && webpack --watch",
+        "clean:js": "rm -f build/$npm_package_name.$npm_package_version.js build/$npm_package_name.$npm_package_version.js.map"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "chokidar-cli": "^1.2.0",
+        "webpack": "^2.2.1"
+    },
+    "dependencies": {
+        "jquery": "^3.1.1"
+    }
+}
